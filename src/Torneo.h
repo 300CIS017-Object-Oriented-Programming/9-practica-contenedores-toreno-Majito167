@@ -1,16 +1,23 @@
 #ifndef TORNEO_H
 #define TORNEO_H
-#include "Jugador.h"
+
+#include <iostream>
 #include <map>
+#include "Jugador.h"
+#include "Videojuego.h"
+
+using namespace std;
+
 class Torneo {
 private:
-    map<string, Videojuego*> videojuegosDisponibles;
     map<string, Jugador*> jugadoresRegistrados;
-
+    map<int, Videojuego*> videojuegosDisponibles;
 public:
-    void registrarVideojuego(string, string, string, int);
-    void registrarJugador(string, int);
-    void inscribirJugadorEnVideojuego(string, string);
-    void mostrarVideojuegosDeJugador(string);
+    void registrarVideojuego(int codigo, string nombre, string genero, int dificultad);
+    void registrarJugador(string nickname, int ranking);
+    void inscribirJugadorEnVideojuego(string nickname, int codigo);
+    void mostrarVideojuegosDeJugador(string nickname);
 };
-#endif
+
+#endif // TORNEO_H
+
